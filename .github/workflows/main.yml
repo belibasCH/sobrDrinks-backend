@@ -28,5 +28,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          tags: belibas/sobrDrinks:latest
+          tags: belibas/sobrdrinks:latest
           push: true
