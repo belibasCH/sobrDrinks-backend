@@ -1,5 +1,5 @@
-# Use an official OpenJDK runtime as a parent image  use correto 21
-FROM arm64v8/amazoncorretto:21
+# Use an official OpenJDK runtime as a parent image use corretto 21
+FROM amazoncorretto:21
 
 # Set the working directory in the container
 WORKDIR /app
