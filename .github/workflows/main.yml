@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Build and Push Docker Image
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
-    runs-on: [self-hosted]
+  build-and-push:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -24,11 +24,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build -x test
 
-      - name: Build Docker Image
-        run: docker build -t belibas/sobrdrinks:latest .
-
-      - name: Deploy Application
-        run: |
-          docker stop sobrdrinks || true
-          docker rm sobrdrinks || true
-          docker run -d --name sobrdrinks -p 80:8080 belibas/sobrdrinks:latest
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          tags: belibas/sobrDrinks:latest
+          push: true
