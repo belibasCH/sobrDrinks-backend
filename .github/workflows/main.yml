@@ -31,7 +31,7 @@ jobs:
 
       # Step 5: Build the Docker image
       - name: Build Docker Image
-        run: docker build -t yourdockerusername/yourapp:latest .
+        run: docker build -t belibas/sobrdrinks:latest .
 
       # Step 6: Log in to Docker Registry
       - name: Login to Docker Registry
@@ -43,7 +43,7 @@ jobs:
 
       # Step 7: Push Docker Image to the registry
       - name: Push Docker Image
-        run: docker push yourdockerusername/yourapp:latest
+        run: docker push belibas/sobrdrinks:latest
 
       # Step 8: Deploy to the server via SSH
       - name: Deploy to Server via SSH
@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            docker pull yourdockerusername/yourapp:latest
-            docker stop yourapp || true
-            docker rm yourapp || true
-            docker run -d --name yourapp -p 80:8080 yourdockerusername/yourapp:latest
+            docker pull belibas/sobdrinks:latest
+            docker stop sobdrinks || true
+            docker rm sobdrinks || true
+            docker run -d --name sobrdrinks -p 80:8224 belibas/sobdrinks:latest
