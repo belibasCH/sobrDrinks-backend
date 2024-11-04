@@ -10,4 +10,10 @@ public class ExampleController {
     public String hello() {
         return "Hello, World!";
     }
+
+    @GetMapping("/lightsOn")
+    public String lightsOn() {
+        return "Lights on!";
+    }
+
 }
