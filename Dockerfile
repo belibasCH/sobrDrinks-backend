@@ -6,7 +6,7 @@ FROM amazoncorretto:21
 WORKDIR /app
 
 # Copy the packaged jar file into the container
-COPY target/myapp.jar app.jar
+COPY build/libs/*.jar app.jar
 
 # Expose the port your app runs on
 EXPOSE 8224
