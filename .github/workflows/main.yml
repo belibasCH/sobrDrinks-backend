@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            docker pull yourdockerusername/yourapp:latest
-            docker stop yourapp || true
-            docker rm yourapp || true
-            docker run -d --name yourapp -p 80:8080 yourdockerusername/yourapp:latest
+            docker pull belibas/sobdrinks:latest
+            docker stop sobdrinks || true
+            docker rm sobdrinks || true
+            docker run -d --name sobrdrinks -p 80:8224 belibas/sobdrinks:latest
