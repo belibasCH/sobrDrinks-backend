@@ -8,53 +8,27 @@ on:
 jobs:
   build-and-deploy:
     runs-on: [self-hosted]
-
     steps:
-      # Step 1: Check out the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Amazon Corretto 21
       - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: '21'
 
-      # Step 3: Grant execute permission for the Gradle wrapper
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # Step 4: Build with Gradle
       - name: Build with Gradle
         run: ./gradlew clean build -x test
 
-      # Step 5: Build the Docker image
       - name: Build Docker Image
         run: docker build -t belibas/sobrdrinks:latest .
 
-      # Step 6: Log in to Docker Registry
-      - name: Login to Docker Registry
-        uses: docker/login-action@v2
-        with:
-          registry: docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      # Step 7: Push Docker Image to the registry
-      - name: Push Docker Image
-        run: docker push belibas/sobrdrinks:latest
-
-      # Step 8: Deploy to the server via SSH
-      - name: Deploy to Server via SSH
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
-          script: |
-            docker pull belibas/sobdrinks:latest
-            docker stop sobdrinks || true
-            docker rm sobdrinks || true
-            docker run -d --name sobrdrinks -p 80:8224 belibas/sobdrinks:latest
+      - name: Deploy Application
+        run: |
+          docker stop sobrdrinks || true
+          docker rm sobrdrinks || true
+          docker run -d --name sobrdrinks -p 80:8080 belibas/sobrdrinks:latest
