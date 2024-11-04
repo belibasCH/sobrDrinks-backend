@@ -13,7 +13,7 @@ public class ExampleController {
 
     @GetMapping("/lightsOn")
     public String lightsOn() {
-        return "Lights on!";
+        return "Lights on! v2";
     }
 
 }
