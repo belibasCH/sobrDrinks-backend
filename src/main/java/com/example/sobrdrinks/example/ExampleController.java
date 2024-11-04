@@ -8,8 +8,7 @@ public class ExampleController {
 
     @GetMapping("/")
     public String hello() {
-        return "Hello, World!";
-    }
+        return "Der Server ist gestartet!";}
 
     @GetMapping("/lightsOn")
     public String lightsOn() {
