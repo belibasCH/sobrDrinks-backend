@@ -1,0 +1,35 @@
+version: "3"
+name: sobrdrinks
+
+services:
+  postgres:
+    container_name: sobrdrinks-postgres
+    image: postgres:16.3
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_PASSWORD: sobrdrinks
+      POSTGRES_USER: sobrdrinks
+      POSTGRES_DB: sobrdrinks
+    volumes:
+      - ./.pgdatabase:/var/lib/postgresql/data
+    networks:
+      - sobrdrinks
+
+  adminer:
+    container_name: sobrdrinks-adminer
+    image: adminer
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    ports:
+      - 8082:8080
+    networks:
+      - sobrdrinks
+
+networks:
+  sobrdrinks:
+    driver: bridge
