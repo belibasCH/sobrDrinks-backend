@@ -8,7 +8,7 @@ public class ExampleController {
 
     @GetMapping("/")
     public String hello() {
-        return "Der Server ist gestartet!";}
+        return "Der Server ist gestartet! - v3";}
 
     @GetMapping("/lightsOn")
     public String lightsOn() {
