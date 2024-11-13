@@ -8,7 +8,7 @@ WORKDIR /build
 COPY . /build
 
 # Build the application using Gradle
-RUN gradle build
+RUN gradle clean build
 
 # Stage 2: Create the final image
 FROM arm64v8/openjdk:17-jdk-slim
