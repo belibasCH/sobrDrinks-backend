@@ -1,7 +1,11 @@
 package com.example.sobrdrinks.example;
 
+import com.pi4j.Pi4J;
+import com.pi4j.context.Context;
 import com.pi4j.io.gpio.*;
-import com.pi4j.wiringpi.Gpio;
+import com.pi4j.io.gpio.digital.DigitalOutput;
+import com.pi4j.io.gpio.digital.DigitalOutputConfig;
+import com.pi4j.io.gpio.digital.DigitalState;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,24 +19,35 @@ public class ExampleController {
 
     @GetMapping("/lightsOn")
     public String lightsOn() throws InterruptedException {
-        final GpioController gpio = GpioFactory.getInstance();
+        // Initialize Pi4J context
+        Context pi4j = Pi4J.newAutoContext();
 
-        // Konfiguriere den GPIO-Pin als digitalen Ausgang (z. B. GPIO 17)
-        final GpioPinDigitalOutput ledPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "LED", PinState.LOW);
+        // Configure the GPIO pin (e.g., GPIO 17)
+        DigitalOutputConfig outputConfig = DigitalOutput.newConfigBuilder(pi4j)
+                .id("LED")
+                .name("LED")
+                .address(18) // Use the BCM numbering
+                .shutdown(DigitalState.LOW)
+                .initial(DigitalState.LOW)
+                .provider("pigpio-digital-output")
+                .build();
 
-        // LED einschalten
+        // Provision the digital output
+        DigitalOutput ledPin = pi4j.create(outputConfig);
+
+        // Turn the LED on
         ledPin.high();
         System.out.println("LED an");
 
-        // Warten
+        // Wait
         Thread.sleep(2000);
 
-        // LED ausschalten
+        // Turn the LED off
         ledPin.low();
         System.out.println("LED aus");
 
-        // GPIO beenden und Ressourcen freigeben
-        gpio.shutdown();
+        // Shutdown Pi4J context
+        pi4j.shutdown();
 
         return "Licht ausgeschaltet!";
     }
