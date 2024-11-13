@@ -1,5 +1,5 @@
 # Use an official OpenJDK runtime as a parent image use corretto 21
-FROM amazoncorretto:21
+FROM balenalib/rpi-raspbian:latest
 
 # Set the working directory in the container
 WORKDIR /app

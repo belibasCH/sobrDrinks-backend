@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sobrdrinks.SobrDrinksApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-04T14:52:31" hostname="MBP-von-Elias" time="0.385">
+<testsuite name="com.example.sobrdrinks.SobrDrinksApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-13T12:54:22" hostname="MBP-von-Elias" time="0.395">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.sobrdrinks.SobrDrinksApplicationTests" time="0.385"/>
-  <system-out><![CDATA[15:52:30.667 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.sobrdrinks.SobrDrinksApplicationTests]: SobrDrinksApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-15:52:30.699 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.sobrdrinks.SobrDrinksApplication for test class com.example.sobrdrinks.SobrDrinksApplicationTests
+  <testcase name="contextLoads()" classname="com.example.sobrdrinks.SobrDrinksApplicationTests" time="0.395"/>
+  <system-out><![CDATA[13:54:21.908 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.sobrdrinks.SobrDrinksApplicationTests]: SobrDrinksApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:54:21.941 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.sobrdrinks.SobrDrinksApplication for test class com.example.sobrdrinks.SobrDrinksApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,9 +14,9 @@
 
  :: Spring Boot ::                (v3.3.5)
 
-2024-11-04T15:52:30.821+01:00  INFO 22173 --- [sobrDrinks] [    Test worker] c.e.s.SobrDrinksApplicationTests         : Starting SobrDrinksApplicationTests using Java 21.0.3 with PID 22173 (started by ebr in /Users/ebr/code/sobrDrinks-backend)
-2024-11-04T15:52:30.822+01:00  INFO 22173 --- [sobrDrinks] [    Test worker] c.e.s.SobrDrinksApplicationTests         : No active profile set, falling back to 1 default profile: "default"
-2024-11-04T15:52:31.184+01:00  INFO 22173 --- [sobrDrinks] [    Test worker] c.e.s.SobrDrinksApplicationTests         : Started SobrDrinksApplicationTests in 0.442 seconds (process running for 0.836)
+2024-11-13T13:54:22.067+01:00  INFO 45064 --- [sobrDrinks] [    Test worker] c.e.s.SobrDrinksApplicationTests         : Starting SobrDrinksApplicationTests using Java 21.0.3 with PID 45064 (started by ebr in /Users/ebr/code/sobrDrinks-backend)
+2024-11-13T13:54:22.068+01:00  INFO 45064 --- [sobrDrinks] [    Test worker] c.e.s.SobrDrinksApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2024-11-13T13:54:22.445+01:00  INFO 45064 --- [sobrDrinks] [    Test worker] c.e.s.SobrDrinksApplicationTests         : Started SobrDrinksApplicationTests in 0.456 seconds (process running for 0.875)
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/ebr/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.19/154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1/byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
