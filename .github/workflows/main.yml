@@ -12,17 +12,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'corretto'
-          java-version: '21'
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build with Gradle
-        run: ./gradlew clean build -x test
+      # Remove the Java setup and Gradle build steps
+      # Build will be handled inside the Docker container
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -43,4 +34,7 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: belibas/sobrdrinks:latest
+          # Optional: If you want to cache layers to speed up builds
+          cache-from: type=registry,ref=belibas/sobrdrinks:cache
+          cache-to: type=registry,ref=belibas/sobrdrinks:cache,mode=max
 
