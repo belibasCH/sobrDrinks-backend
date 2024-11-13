@@ -29,7 +29,6 @@ public class ExampleController {
                 .address(18) // Use the BCM numbering
                 .shutdown(DigitalState.LOW)
                 .initial(DigitalState.LOW)
-                .provider("pigpio-digital-output")
                 .build();
 
         // Provision the digital output
