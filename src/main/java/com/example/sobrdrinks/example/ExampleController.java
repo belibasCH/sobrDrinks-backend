@@ -2,10 +2,7 @@ package com.example.sobrdrinks.example;
 
 import com.pi4j.Pi4J;
 import com.pi4j.context.Context;
-import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.digital.DigitalOutput;
-import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
-import com.pi4j.plugin.raspberrypi.provider.gpio.digital.RpiDigitalOutputProvider;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
