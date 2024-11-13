@@ -17,7 +17,7 @@ FROM arm64v8/openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the built application from the builder stage
-COPY --from=builder /build/target/your-app.jar app.jar
+COPY --from=builder /build/target/*.jar /app/app.jar
 
 # Copy any required native libraries (if applicable)
 COPY --from=builder /build/target/lib/*.so /usr/lib/
