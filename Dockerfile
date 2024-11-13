@@ -7,8 +7,8 @@ WORKDIR /build
 # Copy the source code into the container
 COPY . /build
 
-# Build the application using Maven
-RUN mvn clean package -DskipTests
+# Build the application using Gradle
+RUN gradle build
 
 # Stage 2: Create the final image
 FROM arm64v8/openjdk:17-jdk-slim
